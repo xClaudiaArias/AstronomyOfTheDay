@@ -11,17 +11,18 @@
         <p>NASA's Astronomy Image of the Day</p>
     </nav>
 
-    <img src="" alt="Astronomy image of the day" id="apod" name="apod"/>
+    <img src=<%= hdurl %> alt=<%= title %> id="apod" name="apod"/>
 
     <div id="apod-info">
-        <h1 id="image-titl">Image Title</h1>
-        <h3 id="photographer-name">Photographer's name</h3>
+        <h1 id="image-title"><%= title %></h1>
+        <h3 id="photographer-name"><%= photographer %></h3>
+        <h3 id="date"><%= newDate %></h3>
 
-        <p id="image-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, saepe. Aliquam facilis accusantium incidunt velit iusto rerum eius, exercitationem quaerat sequi ducimus recusandae quasi quibusdam veritatis asperiores, dolor optio voluptatem!</p>
+        <p id="image-description"><%= imageDescription %></p>
 
         <div id="image-slide">
             <img src="" alt="previous-image" id="previous-image">
-            <img src="" alt="current-image" id="current-image">
+            <img src=<%= hdurl %> alt="current-image" id="current-image">
             <img src="" alt="next-image" id="next-image">
         </div>
     </div>
