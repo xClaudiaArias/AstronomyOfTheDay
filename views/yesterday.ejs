@@ -11,18 +11,18 @@
         <a href="/" id="logo">NASA's Astronomy Image of the Day</a>
     </nav>
 
-    <img src=<%= todayObj.hdurl %> alt=<%= todayObj.title %> id="apod" name="apod"/>
+    <img src=<%= yesterdayObj.hdurl %> alt=<%= yesterdayObj.title %> id="apod" name="apod"/>
 
     <div id="apod-info">
-        <h1 id="image-title"><%= todayObj.title %></h1>
-        <h3 id="photographer-name"><%= todayObj.photographer %></h3>
-        <h3 id="date"><%= todayObj.date %></h3>
+        <h1 id="image-title"><%= yesterdayObj.title %></h1>
+        <h3 id="photographer-name"><%= yesterdayObj.photographer %></h3>
+        <h3 id="date"><%= yesterdayObj.date %></h3>
 
-        <p id="image-description"><%= todayObj.imageDescription %></p>
+        <p id="image-description"><%= yesterdayObj.imageDescription %></p>
 
         <div id="image-slide">
-            <a href="/yesterday"><img src="<%= yesterdayObj.hdurl %>" alt="previous-image" id="previous-image"></a>
-            <img src=<%= todayObj.hdurl %> alt="current-image" id="current-image">
+            <img src=<%= yesterdayObj.hdurl %> alt="current-image" id="current-image">
+            <a href="/"><img src=<%= todayObj.hdurl %> alt="next-image" id="next-image"></a> 
         </div>
     </div>
 

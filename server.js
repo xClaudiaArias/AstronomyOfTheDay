@@ -16,19 +16,23 @@ apod.apiKey = process.env.APIKEY;
 // console.log(apod.apiKey)
 
 // TODAY DATA 
-let title = "";
-let imageDescription = "";
-let date = "";
-let hdurl = ""
-let photographer = "";
+const todayObj = {
+    title: "",
+    imageDescription: "",
+    date: "",
+    hdurl: "",
+    photographer: ""
+}
+
 // YESTERDAY DATA 
-let yesterdayTitle = "";
-let yesterdayPhotographer = "";
-let yesterdayImageDescription = "";
-let yesterdayDate = "";
-let yesterdayHdurl = "";
 
-
+const yesterdayObj = {
+    yesterdayTitle: "",
+    yesterdayPhotographer: "",
+    yesterdayImageDescription: "",
+    yesterdayDate: "",
+    yesterdayHdurl: ""    
+}
 
 function getTodaysPicture(err, data) {
 
@@ -39,11 +43,11 @@ function getTodaysPicture(err, data) {
     console.log(data)
 
     // TODO: CHANGE THSI TO AN OBJECT FOR TODAY
-    title = data.title;
-    photographer = data.copyright;
-    imageDescription = data.explanation;
-    date = data.date;
-    hdurl = data.hdurl;
+    todayObj.title = data.title;
+    todayObj.photographer = data.copyright;
+    todayObj.imageDescription = data.explanation;
+    todayObj.date = data.date.split("-").reverse().join('/');
+    todayObj.hdurl = data.hdurl;
 
 }
 
@@ -59,14 +63,16 @@ yesterday.toDateString()
 
 function getYesterdaysPicture(err, data) {
 
-    console.log(data, " yesterdays data")
+    if (err) {
+        console.log(err)
+    }
 
-    // TODO: CREATE AN OBJECT FOR yesterday
-    yesterdayTitle = data.title;
-    yesterdayPhotographer = data.copyright;
-    yesterdayImageDescription = data.explanation;
-    yesterdayDate = data.date;
-    yesterdayHdurl = data.hdurl;
+    yesterdayObj.title = data.title;
+    yesterdayObj.photographer = data.copyright;
+    yesterdayObj.imageDescription = data.explanation;
+    yesterdayObj.date = data.date.split("-").reverse().join('/');
+    yesterdayObj.hdurl = data.hdurl;
+
 }
 
 
@@ -76,16 +82,14 @@ console.log(yesterdayData)
 
 
 app.get("/", asyncHandler(async (req, res) => {
-
-    let newDate = date.split("-").reverse().join('/');
-
-
     res.render("index", {
-        title: title,
-        photographer: photographer,
-        imageDescription: imageDescription,
-        newDate: newDate,
-        hdurl: hdurl
+        todayObj, yesterdayObj
+    })
+}))
+
+app.get("/yesterday", asyncHandler(async (req, res) => {
+    res.render("yesterday", {
+        todayObj, yesterdayObj
     })
 }))
 
