@@ -20,18 +20,21 @@ const todayObj = {
     title: "",
     imageDescription: "",
     date: "",
-    hdurl: "",
-    photographer: ""
+    url: "",
+    photographer: "",
+    media_type: ""
 }
 
 // YESTERDAY DATA 
 
 const yesterdayObj = {
-    yesterdayTitle: "",
-    yesterdayPhotographer: "",
-    yesterdayImageDescription: "",
-    yesterdayDate: "",
-    yesterdayHdurl: ""    
+    title: "",
+    photographer: "",
+    imageDescription: "",
+    date: "",
+    url: "",
+    media_type: ""
+
 }
 
 function getTodaysPicture(err, data) {
@@ -47,7 +50,8 @@ function getTodaysPicture(err, data) {
     todayObj.photographer = data.copyright;
     todayObj.imageDescription = data.explanation;
     todayObj.date = data.date.split("-").reverse().join('/');
-    todayObj.hdurl = data.hdurl;
+    todayObj.url = data.url;
+    todayObj.media_type = data.media_type;
 
 }
 
@@ -67,11 +71,14 @@ function getYesterdaysPicture(err, data) {
         console.log(err)
     }
 
+    console.log(data)
+
     yesterdayObj.title = data.title;
     yesterdayObj.photographer = data.copyright;
     yesterdayObj.imageDescription = data.explanation;
     yesterdayObj.date = data.date.split("-").reverse().join('/');
-    yesterdayObj.hdurl = data.hdurl;
+    yesterdayObj.url = data.url;
+    yesterdayObj.media_type = data.media_type
 
 }
 

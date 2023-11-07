@@ -11,7 +11,13 @@
         <a href="/" id="logo">NASA's Astronomy Image of the Day</a>
     </nav>
 
-    <img src=<%= todayObj.hdurl %> alt=<%= todayObj.title %> id="apod" name="apod"/>
+    <% if (todayObj.media_type === 'image') { %>
+        <img src=<%= todayObj.url %> alt=<%= todayObj.title %> id="apod" name="apod"/>
+    <% } else if (todayObj.media_type === 'video') { %>
+        <iframe  width="854" height="480" 
+            src=<%= todayObj.url %>>
+        </iframe>
+    <% } %>
 
     <div id="apod-info">
         <h1 id="image-title"><%= todayObj.title %></h1>
@@ -21,16 +27,30 @@
         <p id="image-description"><%= todayObj.imageDescription %></p>
 
         <div id="image-slide">
-            <a href="/yesterday"><img src="<%= yesterdayObj.hdurl %>" alt="previous-image" id="previous-image"></a>
-            <img src=<%= todayObj.hdurl %> alt="current-image" id="current-image">
+            <!-- previous image  -->
+            <% if (yesterdayObj.media_type === 'image') { %>
+                <img src=<%= yesterdayObj.url %> alt=<%= yesterdayObj.title %> alt="previous-image" id="previous-image"/>
+            <% } else if (yesterdayObj.media_type === 'video') { %>
+                <iframe  width="420" height="315" 
+                    src=<%= yesterdayObj.url %>>
+                </iframe>
+            <% } %>
+            <!-- current image  -->
+            <% if (todayObj.media_type === 'image') { %>
+                <img src=<%= todayObj.url %> alt=<%= todayObj.title %> alt="current-image" id="current-image"/>
+            <% } else if (todayObj.media_type === 'video') { %>
+                <iframe  width="420" height="315" 
+                    src=<%= todayObj.url %>>
+                </iframe>
+            <% } %>
         </div>
     </div>
 
     <footer>
         <ul>
-            <li>FAQ</li>
+            <li><a href="/faq">FAQ</a></li>
             <li>Created by: Claudia Arias</li>
-            <li>Contact</li>
+            <li><a href="/contact">Contact</a></li>
         <ul>
 
 
