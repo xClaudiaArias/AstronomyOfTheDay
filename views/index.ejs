@@ -5,55 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astronomy Picture of the Day | APOD</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
         <a href="/" id="logo">NASA's Astronomy Image of the Day</a>
     </nav>
 
-    <% if (todayObj.media_type === 'image') { %>
-        <img src=<%= todayObj.url %> alt=<%= todayObj.title %> id="apod" name="apod"/>
-    <% } else if (todayObj.media_type === 'video') { %>
-        <iframe  width="854" height="480" 
-            src=<%= todayObj.url %>>
-        </iframe>
-    <% } %>
-
-    <div id="apod-info">
-        <h1 id="image-title"><%= todayObj.title %></h1>
-        <h3 id="photographer-name"><%= todayObj.photographer %></h3>
-        <h3 id="date"><%= todayObj.date %></h3>
-
-        <p id="image-description"><%= todayObj.imageDescription %></p>
-
-        <div id="image-slide">
-            <!-- previous image  -->
-            <% if (yesterdayObj.media_type === 'image') { %>
-                <img src=<%= yesterdayObj.url %> alt=<%= yesterdayObj.title %> alt="previous-image" id="previous-image"/>
-            <% } else if (yesterdayObj.media_type === 'video') { %>
-                <iframe  width="420" height="315" 
-                    src=<%= yesterdayObj.url %>>
-                </iframe>
+    <div id="container">
+        <% if (todayObj.media_type === 'image') { %>
+            <img src=<%= todayObj.url %> alt=<%= todayObj.title %> id="apod" name="apod"/>
+        <% } else if (todayObj.media_type === 'video') { %>
+            <iframe  width="854" height="480" 
+                src=<%= todayObj.url %>>
+            </iframe>
+        <% } %>
+    
+        <div id="apod-info">
+            <% console.log(todayObj.photographer, " ::todayObj.photographer") %>
+            <!-- title  -->
+            <h1 id="image-title"><%= todayObj.title %></h1>
+            <!-- photographer  -->
+            <% if (todayObj.photographer === undefined) { %>
+                <h3 id="photographer-name">NASA</h3>
+            <% } else { %>
+                <h3 id="photographer-name"><%= todayObj.photographer %></h3>
             <% } %>
-            <!-- current image  -->
-            <% if (todayObj.media_type === 'image') { %>
-                <img src=<%= todayObj.url %> alt=<%= todayObj.title %> alt="current-image" id="current-image"/>
-            <% } else if (todayObj.media_type === 'video') { %>
-                <iframe  width="420" height="315" 
-                    src=<%= todayObj.url %>>
-                </iframe>
-            <% } %>
+            <!-- date -->
+            <h3 id="date"><%= todayObj.date %>  <span> (dd/mm/yyyy) </span></h3>
+            <!-- image description  -->
+            <p id="image-description"><%= todayObj.imageDescription %></p>
+    
+            <!-- IMAGE SLIDE -->
+            <div id="image-slide">
+                <!-- previous image  -->
+                <div id="previous-img-container">
+                    <% if (yesterdayObj.media_type === 'image') { %>
+                        <img src=<%= yesterdayObj.url %> alt=<%= yesterdayObj.title %> alt="previous-image" id="previous-image"/>
+                    <% } else if (yesterdayObj.media_type === 'video') { %>
+                        <iframe  width="150" height="150" 
+                            src=<%= yesterdayObj.url %>>
+                        </iframe>
+                    <% } %>
+                    <a href="/yesterday">previous image</a>
+                </div>
+
+                <!-- current image  -->
+                <div id="current-img-container">
+                    <% if (todayObj.media_type === 'image') { %>
+                        <img src=<%= todayObj.url %> alt=<%= todayObj.title %> alt="current-image" id="current-image"/>
+                    <% } else if (todayObj.media_type === 'video') { %>
+                        <iframe  width="150" height="150" 
+                            src=<%= todayObj.url %>>
+                        </iframe>
+                    <% } %>
+                    <a href="/">current image</a>
+                </div>
+            </div>
         </div>
     </div>
 
+
+
     <footer>
-        <ul>
-            <li><a href="/faq">FAQ</a></li>
-            <li>Created by: Claudia Arias</li>
-            <li><a href="/contact">Contact</a></li>
-        <ul>
-
-
+        <p>Created by: Claudia Arias</p>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
     </footer>
 </body>
 </html>

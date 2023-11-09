@@ -43,9 +43,6 @@ function getTodaysPicture(err, data) {
         console.log(err)
     }
 
-    console.log(data)
-
-    // TODO: CHANGE THSI TO AN OBJECT FOR TODAY
     todayObj.title = data.title;
     todayObj.photographer = data.copyright;
     todayObj.imageDescription = data.explanation;
@@ -70,8 +67,6 @@ function getYesterdaysPicture(err, data) {
     if (err) {
         console.log(err)
     }
-
-    console.log(data)
 
     yesterdayObj.title = data.title;
     yesterdayObj.photographer = data.copyright;
