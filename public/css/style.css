@@ -55,6 +55,10 @@ nav {
     align-items: center;
 }
 
+#current-image {
+    border: 3px solid #7876C7;;
+}
+
 #current-image, #previous-image, #next-image {
     width: 100px;
     height: 100px;
@@ -130,6 +134,7 @@ nav {
     text-decoration: underline;
     color: #7876C7;
 }
+
 
 footer {
     width: 100vw;
