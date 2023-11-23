@@ -101,6 +101,10 @@ app.get("/contact", asyncHandler(async (req, res) => {
     res.render("contact")
 }))
 
+app.get("/about", asyncHandler(async (req, res) => {
+    res.render("about")
+}))
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}.`)
 })
