@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astronomy Picture of the Day | APOD</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav>
-        <a href="/" id="logo">NASA's Astronomy Image of the Day</a>
-    </nav>
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
 
 
     <div id="container">
         <% if (yesterdayObj.media_type === 'image') { %>
-            <img src=<%= yesterdayObj.url %> alt=<%= yesterdayObj.title %> id="apod" name="apod"/>
+            <img src=<%= yesterdayObj.url %> alt="Apod" id="apod" name="apod"/>
         <% } else if (yesterdayObj.media_type === 'video') { %>
             <iframe  width="854" height="480" 
                 src=<%= yesterdayObj.url %>>
@@ -35,7 +23,7 @@
                 <!-- current image  -->
                 <div id="current-img-container">
                     <% if (yesterdayObj.media_type === 'image') { %>
-                        <img src=<%= yesterdayObj.url %> alt=<%= yesterdayObj.title %> alt="current-image" id="current-image"/>
+                        <img src=<%= yesterdayObj.url %>  alt="current-image" id="current-image"/>
                     <% } else if (yesterdayObj.media_type === 'video') { %>
                         <iframe  width="420" height="315" 
                             src=<%= yesterdayObj.url %>>
@@ -46,7 +34,7 @@
                 <!-- next image  -->
                 <div id="next-img-container">
                     <% if (todayObj.media_type === 'image') { %>
-                        <img src=<%= todayObj.url %> alt=<%= todayObj.title %> alt="next-image" id="next-image"/>
+                        <img src=<%= todayObj.url %> alt="next-image" id="next-image"/>
                     <% } else if (todayObj.media_type === 'video') { %>
                         <iframe  width="420" height="315" 
                             src=<%= todayObj.url %>>
@@ -58,10 +46,4 @@
         </div>
     </div>
 
-    <footer>
-        <p>Created by: Claudia Arias</p>
-        <a href="/faq">FAQ</a>
-        <a href="/contact">Contact</a>
-    </footer>
-</body>
-</html>
+<%- include('./partials/footer') %>

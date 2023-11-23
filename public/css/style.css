@@ -167,5 +167,82 @@ footer p {
 }
 
 
+#contact-container {
+    width: 100vw;
+    height: 640px;
+    padding: 50px 30px;
+}
+
+#contact-container h1 {
+    color: #7876C7;
+}
+
+
+#contact-container form {
+    height: 440px;
+    padding: 40px 0;
+}
+
+#contact-container form label {
+    width: 90px; 
+    display: inline-block;
+}
+
+#contact-container form div {
+    padding: 10px 0;
+}
+
+
+#contact-container form input[type=text] {
+    border: 1px solid #7876C7;
+    height: 25px;
+    border-radius: 18px;
+    width: 300px; 
+    display: inline-block;
+}
+
+#contact-container form textarea {
+    border: 1px solid #7876C7;
+    border-radius: 18px;
+    width: 395px; 
+    margin-top: 10px;
+}
+
+#container-btn {
+    display: flex;
+    justify-content: space-around;
+    width: 395px;
+}
+
+#container-btn .submit {
+    background-color: #7876C7;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 18px;
+}
+
+#container-btn .submit:hover {
+    background-color: #6665b5;
+    color: white;
+}
+
+#container-btn .reset {
+    background-color: white ;
+    color: #7876C7;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 18px;
+}
+
+#container-btn .reset:hover {
+    background-color: #deddff ;
+}
+
+
+
+
 
 

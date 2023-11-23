@@ -43,6 +43,8 @@ function getTodaysPicture(err, data) {
         console.log(err)
     }
 
+    console.log(data, " ::data")
+
     todayObj.title = data.title;
     todayObj.photographer = data.copyright;
     todayObj.imageDescription = data.explanation;
@@ -93,6 +95,10 @@ app.get("/yesterday", asyncHandler(async (req, res) => {
     res.render("yesterday", {
         todayObj, yesterdayObj
     })
+}))
+
+app.get("/contact", asyncHandler(async (req, res) => {
+    res.render("contact")
 }))
 
 app.listen(port, () => {

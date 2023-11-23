@@ -1,0 +1,35 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+<div id="contact-container">
+    <h1>Contact me</h1>
+
+    <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+        <div>
+            <label for="name" class="contact-label">Name</label>
+            <input type="text" name="name">
+        </div>
+
+        <div>
+            <label for="email" class="contact-label">Email</label>
+            <input type="text" name="email">            
+        </div>
+
+
+        <div>
+            <label for="comment" class="contact-label">Comment:</label>
+            <br>
+            <textarea name="comment" rows="10" cols="60"></textarea>
+        </div>
+
+        <div id="container-btn">
+            <button type="submit" class="submit">Submit</button>
+            <button type="reset" class="reset">Reset</button>
+        </div>
+
+    
+    </form>
+</div>
+
+
+<%- include('./partials/footer') %>
