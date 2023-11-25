@@ -13,8 +13,13 @@
 
         <div id="apod-info">
             <h1 id="image-title"><%= yesterdayObj.title %></h1>
-            <!-- <h3 id="photographer-name"><%= yesterdayObj.photographer %></h3> -->
-            <h3 id="photographer-name">Photographer Name</h3>
+
+            <% if (yesterdayObj.photographer === undefined) { %>
+                <h3 id="photographer-name">NASA</h3>
+            <% } else { %>
+                <h3 id="photographer-name"><%= yesterdayObj.photographer %></h3>
+            <% } %>
+            <!-- <h3 id="photographer-name">Photographer Name</h3> -->
             <h3 id="date"><%= yesterdayObj.date %><span>(dd/mm/yyyy)</span></h3>
 
             <p id="image-description"><%= yesterdayObj.imageDescription %></p>

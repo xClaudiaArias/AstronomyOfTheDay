@@ -2,33 +2,56 @@
 <%- include('./partials/nav') %>
 
 <div id="contact-container">
-    <h1>Contact me</h1>
+    <div id="contact-div">
+        <!-- left -->
+        <div id="cl-info">
+            <div id="cl-img-cont">
+                <img src="./images/cl.jpg" alt="Claudia" id="cl-img">
+            </div>
+            <div id="cl-information">
+                <p><strong>Claudia Arias</strong></p>
+                <p><em>Software Developer</em></p>
+                <p>New York</p>
 
-    <form action="mailto:someone@example.com" method="post" enctype="text/plain">
-        <div>
-            <label for="name" class="contact-label">Name</label>
-            <input type="text" name="name">
+                <ul>
+                    <li><a href="http://linkedin.com/in/xclaudiaarias"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
         </div>
 
-        <div>
-            <label for="email" class="contact-label">Email</label>
-            <input type="text" name="email">            
+        <!-- right -->
+        <div id="contact-form">
+            <h1>Contact me</h1>
+            <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+                <div>
+                    <label for="name" class="contact-label">Name</label>
+                    <input type="text" name="name">
+                </div>
+        
+                <div>
+                    <label for="email" class="contact-label">Email</label>
+                    <input type="text" name="email">            
+                </div>
+        
+        
+                <div>
+                    <label for="comment" class="contact-label">Comment:</label>
+                    <br>
+                    <textarea name="comment" rows="10" cols="60"></textarea>
+                </div>
+        
+                <div id="container-btn">
+                    <button type="submit" class="submit">Submit</button>
+                    <button type="reset" class="reset">Reset</button>
+                </div>
+        
+            
+            </form>
         </div>
+    </div>
 
-
-        <div>
-            <label for="comment" class="contact-label">Comment:</label>
-            <br>
-            <textarea name="comment" rows="10" cols="60"></textarea>
-        </div>
-
-        <div id="container-btn">
-            <button type="submit" class="submit">Submit</button>
-            <button type="reset" class="reset">Reset</button>
-        </div>
-
-    
-    </form>
 </div>
 
 
